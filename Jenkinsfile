@@ -1,12 +1,21 @@
 
 pipeline{
-    agent any{
+    agent any
         stages{
-            stage('hello'){
+            stage('build'){
+                agent{
+                    docker{
+                        image 'node:18-alpine'
+                        reuseNode true
+                    }
+                }
+
                 steps{
-                    echo 'Hello Prince'
+                    sh '''
+                    ls -l
+                    '''
                 }
             }
         }
-    }
+    
 }
