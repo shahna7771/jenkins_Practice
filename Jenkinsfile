@@ -13,6 +13,11 @@ pipeline{
                 steps{
                     sh '''
                     ls -l
+                    node --version
+                    npm install
+                    npm run build
+                    echo "complete"
+                    ls -la
                     '''
                 }
             }
